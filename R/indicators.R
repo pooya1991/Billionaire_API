@@ -4,9 +4,9 @@ library(TTR)
 library(quantmod)
 library(dplyr)
 library(MASS)
-library(Boom)
-library(BoomSpikeSlab)
-library(bsts)
+# library(Boom)
+# library(BoomSpikeSlab)
+# library(bsts)
 load("data/Indo.rda")
 time <- "time"
 weekday <- "weekday"
