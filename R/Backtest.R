@@ -6,9 +6,6 @@ Backtest <- function(Stg,UID,Share,Timeframe = "hourly",StartDate = "2014-01-01"
   library(quantmod)
   library(dplyr)
   library(MASS)
-  # library(Boom)
-  # library(BoomSpikeSlab)
-  # library(bsts)
   Report <- function(Result,dd,MaxPos){
     n <- nrow(Result) / 2
     Trade <- rep(c(1:n),each = 2)

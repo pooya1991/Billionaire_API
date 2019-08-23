@@ -17,7 +17,7 @@ service_log <- function(service, statusCode, message) {
 # dat aof instruments -----------------------------------------------------
 
 instrument_data <- function(ticker, timeframe) {
-  data_path <- paste0("data/tickers/", ticker, ".rda")
+  data_path <- paste0("data/tickers/", ticker, ".RData")
   load(data_path)
   switch(timeframe,
          m1 = result <- data,
