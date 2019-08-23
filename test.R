@@ -1,4 +1,5 @@
 #' @get /hi
-function(S) {
+function() {
   "Hi back"
+  print("test")
 }
