@@ -17,7 +17,7 @@ service_log <- function(service, statusCode, message) {
 # dat aof instruments -----------------------------------------------------
 
 instrument_data <- function(ticker, timeframe) {
-  data_path <- paste0("data/tickers/", ticker, ".RData")
+  data_path <- paste0("data/tickers/", ticker, ".rda")
   load(data_path)
   switch(timeframe,
          m1 = result <- data,
@@ -157,3 +157,23 @@ MaxPosition <- function(B,S,MaxPos){
   }
   val
 }
+
+
+
+
+# Users Updater -----------------------------------------------------------
+
+add_users <- function(userName, userID, userEmail, userPhone) {
+  users_dir <- "data/users.rda"
+  if(file.exists(users_dir)) {
+    laod(users_dir)
+    new_user <- data.frame(user_name = userName, user_id = userID, userEmail = user_email, user_phone = userPhone)
+    users <- rbind(users, new_user)
+    users <- unique(users)
+    save(users, file = users_dir)
+  } else{
+    users <- data.frame(user_name = userName, user_id = userID, userEmail = user_email, user_phone = userPhone)
+    save(users, file = users_dir)
+  }
+}
+
