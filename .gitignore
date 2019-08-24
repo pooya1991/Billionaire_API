@@ -5,6 +5,7 @@
 # Session Data files
 .DS_Store
 .txt
+.rda
 
 # Example code in package build process
 *-Ex.R
