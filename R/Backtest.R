@@ -1,11 +1,11 @@
+requireNamespace("jsonlite")
+library(zoo)
+library(xts)
+library(TTR)
+library(quantmod)
+library(dplyr)
+library(MASS)
 Backtest <- function(Stg,UID,Share,Timeframe = "hourly",StartDate = "2014-01-01",EndDate = Sys.Date(),Vol = 1000,MaxPos = 10,Fee = T,Over = T,ReEnterType = 0,ReEnterAmm = 0){
-  requireNamespace("jsonlite")
-  library(zoo)
-  library(xts)
-  library(TTR)
-  library(quantmod)
-  library(dplyr)
-  library(MASS)
   Report <- function(Result,dd,MaxPos){
     n <- nrow(Result) / 2
     Trade <- rep(c(1:n),each = 2)

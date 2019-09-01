@@ -160,7 +160,6 @@ MaxPosition <- function(B,S,MaxPos){
 
 
 
-
 # Users Updater -----------------------------------------------------------
 
 add_users <- function(userName, userID, userEmail, userPhone) {
