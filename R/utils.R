@@ -1,5 +1,4 @@
 library(xts)
-Sys.setenv(TZ='IR')
 
 # log function ------------------------------------------------------------
 
@@ -8,6 +7,7 @@ service_log <- function(service, statusCode, message) {
   log_dist <- paste0("log/", service, ".txt")
   sink(log_dist, append = TRUE)
   time <- Sys.time()
+  time <- format(time, tz = "Asia/Tehran")
   log_text <- paste(time, statusCode, message, "\n")
   cat(log_text)
   sink()
