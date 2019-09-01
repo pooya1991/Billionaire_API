@@ -1,6 +1,6 @@
 ActivateStrategy <- function(Stg, Email,StgID, UID,Share, Timeframe, StartDate = Sys.Date(), EndDate, Vol, MaxPos, ReEnterType = 0,ReEnterAmm = 0, activation = 1) {
-  user_strategies <- "data/active_strategies.rda"
-  strategies_dir <- "data/strategies.rda"
+  user_strategies <- "/home/rstudio/R/Billionaire-Jobs/data/active_strategies.rda"
+  strategies_dir <- "/home/rstudio/R/Billionaire-Jobs/data/strategies.rda"
   time <- Sys.time()
   time <- gsub(" ", "", time)
   time <- gsub(":", "", time)
