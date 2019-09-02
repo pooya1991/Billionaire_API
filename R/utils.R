@@ -16,12 +16,13 @@ service_log <- function(service, statusCode, message) {
 
 # dat aof instruments -----------------------------------------------------
 
-instrument_data <- function(ticker, timeframe) {
-  data_path <- paste0("/home/rstudio/R/Billionaire-Jobs/data/tickers/", ticker, ".rda")
+instrument_data <- function(ticker, timeframe, StartDate, EndDate) {
+  data_path <- paste0("/Users/pooya/Desktop/Billionaire/Jobs/Billionaire-Jobs/data/tickers/", ticker, ".rda")
   load(data_path)
+  data <- data[paste(StartDate,EndDate, sep = "/")]
   switch(timeframe,
          m1 = result <- data,
-         m3 = result <- to.minutes3(dataa),
+         m3 = result <- to.minutes3(data),
          m5 = result <- to.minutes5(data),
          m10 = result <- to.minutes10(data),
          m15 = result <- to.minutes15(data),
@@ -32,6 +33,8 @@ instrument_data <- function(ticker, timeframe) {
          monthly = result <- to.monthly(data),
          quarterly = result <- to.quarterly(data)
   )
+  colnames(result) <- c("Open", "High", "Low", "Close", "Volume")
+  result
 }
 
 

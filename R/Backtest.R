@@ -5,7 +5,7 @@ library(TTR)
 library(quantmod)
 library(dplyr)
 library(MASS)
-Backtest <- function(Stg,UID,Share,Timeframe = "hourly",StartDate = "2014-01-01",EndDate = Sys.Date(),Vol = 1000,MaxPos = 10,Fee = T,Over = T,ReEnterType = 0,ReEnterAmm = 0){
+Backtest <- function(Stg,UID,Share,Timeframe, StartDate, EndDate, Vol, MaxPos, Fee = TRUE, Over = TRUE, ReEnterType, ReEnterAmm){
   Report <- function(Result,dd,MaxPos){
     n <- nrow(Result) / 2
     Trade <- rep(c(1:n),each = 2)
@@ -54,8 +54,8 @@ Backtest <- function(Stg,UID,Share,Timeframe = "hourly",StartDate = "2014-01-01"
     finalresult <- list(overal_result = Natije, details= lis)
     finalresult
   }
-  bb <- instrument_data(ticker = Share, timeframe = Timeframe)
-  dd <- instrument_data(ticker = Share, timeframe = "daily")
+  bb <- instrument_data(ticker = Share, timeframe = Timeframe, StartDate = StartDate, EndDate = EndDate)
+  dd <- instrument_data(ticker = Share, timeframe = "daily", StartDate = StartDate, EndDate = EndDate)
   # get the Strategy
   x <- as.character(Stg)
   Stg <- jsonlite::fromJSON(x)
