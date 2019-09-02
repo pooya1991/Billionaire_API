@@ -17,7 +17,7 @@ service_log <- function(service, statusCode, message) {
 # dat aof instruments -----------------------------------------------------
 
 instrument_data <- function(ticker, timeframe, StartDate, EndDate) {
-  data_path <- paste0("/Users/pooya/Desktop/Billionaire/Jobs/Billionaire-Jobs/data/tickers/", ticker, ".rda")
+  data_path <- paste0("/home/rstudio/R/Billionaire-Jobs/data/tickers/", ticker, ".rda")
   load(data_path)
   data <- data[paste(StartDate,EndDate, sep = "/")]
   switch(timeframe,
