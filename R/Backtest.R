@@ -14,7 +14,7 @@ Backtest <- function(Stg,UID,Share,Timeframe, StartDate, EndDate, Vol, MaxPos, F
     MeanLost <- mean(Result[Result[,4] <= 0 & !is.na(Result[,4]),4])
     MaxDrwDwn <- min(Result[Result[,4] <= 0 & !is.na(Result[,4]),4])
     TotalRet <- cumprod(1 + Result[!is.na(Result[,4]),4])[n] - 1
-    TurnOver <- sum(Result[,1]) * as.numeric(Vol)
+    TurnOver <- floor(sum(Result[,1]) * as.numeric(Vol))
     TotalVol <- n * as.numeric(Vol)
     OpenPos <- vector()
     a1 <- c(1:n)
